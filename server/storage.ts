@@ -4,6 +4,13 @@ import {
   projects,
   projectUpdates,
   quotes,
+  leads,
+  aiDesigns,
+  irrigationSystems,
+  lightingSystems,
+  inventory,
+  maintenanceSchedules,
+  poolSystems,
   type User,
   type UpsertUser,
   type Service,
@@ -14,6 +21,20 @@ import {
   type InsertProjectUpdate,
   type Quote,
   type InsertQuote,
+  type Lead,
+  type InsertLead,
+  type AiDesign,
+  type InsertAiDesign,
+  type IrrigationSystem,
+  type InsertIrrigationSystem,
+  type LightingSystem,
+  type InsertLightingSystem,
+  type InventoryItem,
+  type InsertInventoryItem,
+  type MaintenanceSchedule,
+  type InsertMaintenanceSchedule,
+  type PoolSystem,
+  type InsertPoolSystem,
 } from "@shared/schema";
 import { db } from "./db";
 import { eq, desc, and, sql } from "drizzle-orm";
@@ -50,8 +71,65 @@ export interface IStorage {
   getQuotesByClient(clientId: string): Promise<Quote[]>;
   createQuote(quote: InsertQuote): Promise<Quote>;
   updateQuote(id: string, quote: Partial<InsertQuote>): Promise<Quote>;
+
+  // KnoxRadar - Lead management operations
+  getLeads(): Promise<Lead[]>;
+  getLead(id: string): Promise<Lead | undefined>;
+  getLeadsByStatus(status: string): Promise<Lead[]>;
+  getLeadsByAssignee(assigneeId: string): Promise<Lead[]>;
+  createLead(lead: InsertLead): Promise<Lead>;
+  updateLead(id: string, lead: Partial<InsertLead>): Promise<Lead>;
+  convertLeadToClient(leadId: string): Promise<User>;
+
+  // KnoxDesign - AI Design operations
+  getAiDesigns(): Promise<AiDesign[]>;
+  getAiDesign(id: string): Promise<AiDesign | undefined>;
+  getAiDesignsByProject(projectId: string): Promise<AiDesign[]>;
+  getAiDesignsByLead(leadId: string): Promise<AiDesign[]>;
+  createAiDesign(design: InsertAiDesign): Promise<AiDesign>;
+  updateAiDesign(id: string, design: Partial<InsertAiDesign>): Promise<AiDesign>;
+
+  // Smart Systems - Irrigation operations
+  getIrrigationSystems(): Promise<IrrigationSystem[]>;
+  getIrrigationSystem(id: string): Promise<IrrigationSystem | undefined>;
+  getIrrigationSystemsByProject(projectId: string): Promise<IrrigationSystem[]>;
+  createIrrigationSystem(system: InsertIrrigationSystem): Promise<IrrigationSystem>;
+  updateIrrigationSystem(id: string, system: Partial<InsertIrrigationSystem>): Promise<IrrigationSystem>;
+
+  // Smart Systems - Lighting operations  
+  getLightingSystems(): Promise<LightingSystem[]>;
+  getLightingSystem(id: string): Promise<LightingSystem | undefined>;
+  getLightingSystemsByProject(projectId: string): Promise<LightingSystem[]>;
+  createLightingSystem(system: InsertLightingSystem): Promise<LightingSystem>;
+  updateLightingSystem(id: string, system: Partial<InsertLightingSystem>): Promise<LightingSystem>;
+
+  // Inventory management
+  getInventoryItems(): Promise<InventoryItem[]>;
+  getInventoryItem(id: string): Promise<InventoryItem | undefined>;
+  getInventoryByCategory(category: string): Promise<InventoryItem[]>;
+  getLowStockItems(): Promise<InventoryItem[]>;
+  createInventoryItem(item: InsertInventoryItem): Promise<InventoryItem>;
+  updateInventoryItem(id: string, item: Partial<InsertInventoryItem>): Promise<InventoryItem>;
+  updateInventoryQuantity(id: string, quantity: number): Promise<InventoryItem>;
+
+  // Maintenance scheduling
+  getMaintenanceSchedules(): Promise<MaintenanceSchedule[]>;
+  getMaintenanceSchedule(id: string): Promise<MaintenanceSchedule | undefined>;
+  getMaintenanceByProject(projectId: string): Promise<MaintenanceSchedule[]>;
+  getUpcomingMaintenance(days: number): Promise<MaintenanceSchedule[]>;
+  getOverdueMaintenance(): Promise<MaintenanceSchedule[]>;
+  createMaintenanceSchedule(schedule: InsertMaintenanceSchedule): Promise<MaintenanceSchedule>;
+  updateMaintenanceSchedule(id: string, schedule: Partial<InsertMaintenanceSchedule>): Promise<MaintenanceSchedule>;
+  completeMaintenance(id: string, completedDate: Date, notes?: string): Promise<MaintenanceSchedule>;
+
+  // Pool systems
+  getPoolSystems(): Promise<PoolSystem[]>;
+  getPoolSystem(id: string): Promise<PoolSystem | undefined>;
+  getPoolSystemsByProject(projectId: string): Promise<PoolSystem[]>;
+  createPoolSystem(system: InsertPoolSystem): Promise<PoolSystem>;
+  updatePoolSystem(id: string, system: Partial<InsertPoolSystem>): Promise<PoolSystem>;
   
-  // Dashboard stats
+  // Dashboard stats (enhanced)
   getDashboardStats(): Promise<{
     activeProjects: number;
     completedProjects: number;
@@ -59,6 +137,17 @@ export interface IStorage {
     monthlyRevenue: number;
     netProfit: number;
     pendingPayments: number;
+    newLeads: number;
+    activeMaintenances: number;
+    lowStockItems: number;
+  }>;
+
+  // KnoxRadar analytics
+  getLeadConversionStats(): Promise<{
+    totalLeads: number;
+    convertedLeads: number;
+    conversionRate: number;
+    leadsBySource: Record<string, number>;
   }>;
 }
 

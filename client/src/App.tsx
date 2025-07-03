@@ -6,6 +6,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { useAuth } from "@/hooks/useAuth";
 import Landing from "@/pages/Landing";
 import Dashboard from "@/pages/Dashboard";
+import KnoxRadar from "@/pages/KnoxRadar";
+import KnoxScan from "@/pages/KnoxScan";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -18,6 +20,8 @@ function Router() {
       ) : (
         <>
           <Route path="/" component={Dashboard} />
+          <Route path="/knox-radar" component={KnoxRadar} />
+          <Route path="/knox-scan" component={KnoxScan} />
         </>
       )}
       <Route component={NotFound} />

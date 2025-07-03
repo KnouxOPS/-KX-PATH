@@ -1,11 +1,12 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Bot, Calculator, MapPin, BarChart3 } from "lucide-react";
+import { Bot, Calculator, MapPin, BarChart3, Radar, ScanLine } from "lucide-react";
+import { Link } from "wouter";
 
 export default function QuickActions() {
   return (
     <section className="mb-12">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
         <Card className="glass-card hover:shadow-xl transition-all duration-300">
           <CardContent className="p-6">
             <div className="flex items-center justify-between mb-4">
@@ -41,6 +42,24 @@ export default function QuickActions() {
         <Card className="glass-card hover:shadow-xl transition-all duration-300">
           <CardContent className="p-6">
             <div className="flex items-center justify-between mb-4">
+              <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center">
+                <ScanLine className="text-white text-xl" />
+              </div>
+              <span className="text-sm font-medium text-green-600">KnoxScan</span>
+            </div>
+            <h3 className="text-lg font-semibold mb-2">Site Analysis</h3>
+            <p className="text-gray-600 text-sm mb-4">AI-powered soil & climate analysis</p>
+            <Link href="/knox-scan">
+              <Button className="w-full bg-green-500 hover:bg-green-600 text-white">
+                Scan Site
+              </Button>
+            </Link>
+          </CardContent>
+        </Card>
+
+        <Card className="glass-card hover:shadow-xl transition-all duration-300">
+          <CardContent className="p-6">
+            <div className="flex items-center justify-between mb-4">
               <div className="w-12 h-12 bg-accent rounded-xl flex items-center justify-center">
                 <MapPin className="text-white text-xl" />
               </div>
@@ -51,6 +70,24 @@ export default function QuickActions() {
             <Button className="w-full btn-accent">
               View Map
             </Button>
+          </CardContent>
+        </Card>
+
+        <Card className="glass-card hover:shadow-xl transition-all duration-300">
+          <CardContent className="p-6">
+            <div className="flex items-center justify-between mb-4">
+              <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center">
+                <Radar className="text-white text-xl animate-spin" />
+              </div>
+              <span className="text-sm font-medium text-orange-600">KnoxRadar</span>
+            </div>
+            <h3 className="text-lg font-semibold mb-2">Smart Prospects</h3>
+            <p className="text-gray-600 text-sm mb-4">AI-powered lead discovery & tracking</p>
+            <Link href="/knox-radar">
+              <Button className="w-full bg-orange-500 hover:bg-orange-600 text-white">
+                Launch Radar
+              </Button>
+            </Link>
           </CardContent>
         </Card>
 

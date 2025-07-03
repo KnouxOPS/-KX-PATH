@@ -2,7 +2,15 @@
 
 ## Overview
 
-KX PATH is a comprehensive AI-powered landscape management platform designed for "طريق الخبرة" (Path of Experience) company in the UAE. This system serves as an operating system for luxury landscaping businesses, providing end-to-end project management, AI-driven design tools, and multi-role dashboards for managers, clients, and field workers.
+KX PATH (طريق الخبرة - Path of Experience) is a comprehensive AI-powered "Landscape AI-OS" designed for the UAE luxury landscaping market. Led by Engineer Tarek for "طريق الخبرة" company, with technical vision by Knoux, this system serves as a complete operating system for landscaping businesses.
+
+**Official Project Name**: KX PATH – طريق الخبرة | Landscape AI-OS
+**Company**: طريق الخبرة (UAE), managed by Engineer Tarek
+**Technical Vision**: Knoux
+**Target**: Premium landscaping market in UAE
+**Contact**: +971 56 504 9898, Instagram: @tryq_alkhbrh
+
+The system includes 25+ core features and services, from AI-powered design to smart irrigation, pool construction, project tracking, and exclusive innovations like KnoxRadar (smart client discovery) and KnoxScan (AI site analysis).
 
 ## System Architecture
 
