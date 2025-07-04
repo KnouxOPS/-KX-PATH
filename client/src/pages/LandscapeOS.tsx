@@ -8,14 +8,22 @@ import AIDesignStudio from "@/components/AIDesignStudio";
 import SmartRadar from "@/components/SmartRadar";
 import ClientPortal from "@/components/ClientPortal";
 import ProjectsMap from "@/components/ProjectsMap";
+import EpicSplash from "@/components/EpicSplash";
+import WorldClassFeatures from "@/components/WorldClassFeatures";
 
 export default function LandscapeOS() {
   const [language, setLanguage] = useState<"en" | "ar">("ar");
   const [activeModule, setActiveModule] = useState("dashboard");
+  const [showSplash, setShowSplash] = useState(true);
 
   const toggleLanguage = () => {
     setLanguage((prev) => (prev === "en" ? "ar" : "en"));
   };
+
+  // Show splash screen first
+  if (showSplash) {
+    return <EpicSplash onComplete={() => setShowSplash(false)} />;
+  }
 
   const renderContent = () => {
     switch (activeModule) {
@@ -33,6 +41,7 @@ export default function LandscapeOS() {
         return (
           <div className="space-y-8">
             <ProjectsOverview language={language} />
+            <WorldClassFeatures language={language} />
             <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
               <div className="xl:col-span-2">
                 <ServicesGrid language={language} />
