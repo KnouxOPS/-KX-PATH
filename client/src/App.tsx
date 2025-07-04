@@ -9,6 +9,7 @@ import Dashboard from "@/pages/Dashboard";
 import KnoxRadar from "@/pages/KnoxRadar";
 import KnoxScan from "@/pages/KnoxScan";
 import GardenLanding from "@/pages/GardenLanding";
+import MarketIntelligence from "@/pages/MarketIntelligence";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -26,6 +27,7 @@ function Router() {
         </>
       )}
       <Route path="/garden" component={GardenLanding} />
+      <Route path="/market" component={MarketIntelligence} />
       <Route component={NotFound} />
     </Switch>
   );
