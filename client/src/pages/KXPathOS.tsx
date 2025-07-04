@@ -13,6 +13,9 @@ import PremiumZone from "@/components/PremiumZone";
 import ResearcherHub from "@/components/ResearcherHub";
 import FieldTeamDashboard from "@/components/FieldTeamDashboard";
 import EpicSplash from "@/components/EpicSplash";
+import UAESmartMap from "@/components/UAESmartMap";
+import SmartUAERadar from "@/components/SmartUAERadar";
+import SmartOpportunityHunter from "@/components/SmartOpportunityHunter";
 
 export default function KXPathOS() {
   const [language, setLanguage] = useState<"en" | "ar">("ar");
@@ -41,6 +44,12 @@ export default function KXPathOS() {
         return <LiveMarketData language={language} />;
       case "smart-sniper":
         return <SmartSniperRadar language={language} />;
+      case "uae-radar":
+        return <SmartUAERadar language={language} />;
+      case "uae-map":
+        return <UAESmartMap language={language} />;
+      case "opportunity-hunter":
+        return <SmartOpportunityHunter language={language} />;
       case "projects":
         return <ProjectManagement language={language} userRole={userRole} />;
       case "live-feed":
