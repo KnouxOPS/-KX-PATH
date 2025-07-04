@@ -113,7 +113,37 @@ interface Opportunity {
   position: LatLngTuple;
   urgent: boolean;
   status: "active" | "pending" | "sold";
+  company?: string;
 }
+
+// TTNQ AL-JEARA Company Data
+const ttnqAlJeara = {
+  id: "ttnq_al_jeara",
+  name: "TTNQ AL-JEARA TECHNICAL SERVICES",
+  nameAr: "طريق الجيرة للخدمات الفنية",
+  logo: "https://cdn.builder.io/api/v1/image/assets%2F74c3699232444cda89c7094dd408430f%2F904ded2e5f2e4b65a4090ca759a801ec?format=webp&width=800",
+  colors: {
+    primary: "#1e40af", // Blue from logo
+    secondary: "#3b82f6",
+    accent: "#60a5fa",
+  },
+  specialties: [
+    "تصميم وتنفيذ الحدائق",
+    "أنظمة الري الذكية",
+    "الصيانة والتشغيل",
+    "تنسيق المواقع العامة",
+  ],
+  activeProjects: 12,
+  completedProjects: 85,
+  rating: 4.8,
+  experience: "15+ سنة",
+  coverage: ["DU", "SH", "AJ"],
+  contact: {
+    phone: "+971 50 123 4567",
+    email: "info@ttnq-aljeara.ae",
+    website: "www.ttnq-aljeara.ae",
+  },
+};
 
 // Mock Real-time Data
 const generateOpportunities = (): Opportunity[] => [
@@ -176,6 +206,38 @@ const generateOpportunities = (): Opportunity[] => [
     position: [25.2048, 55.2708],
     urgent: true,
     status: "active",
+  },
+  {
+    id: "5",
+    type: "new_construction",
+    title: "TTNQ AL-JEARA Garden Project",
+    titleAr: "مشروع حديقة طريق الجيرة",
+    location: "Al Qusais - Dubai",
+    locationAr: "القصيص - دبي",
+    value: 3200000,
+    completionRate: 78,
+    timeAgo: "منذ ساعة",
+    emirate: "DU",
+    position: [25.2854, 55.3924],
+    urgent: false,
+    status: "active",
+    company: "ttnq_al_jeara",
+  },
+  {
+    id: "6",
+    type: "investment",
+    title: "Smart Irrigation System",
+    titleAr: "نظام ري ذكي - طريق الجيرة",
+    location: "Al Nahda - Sharjah",
+    locationAr: "النهدة - الشارقة",
+    value: 850000,
+    completionRate: 95,
+    timeAgo: "منذ 3 ساعات",
+    emirate: "SH",
+    position: [25.2964, 55.3772],
+    urgent: true,
+    status: "active",
+    company: "ttnq_al_jeara",
   },
 ];
 
@@ -310,7 +372,7 @@ const SmartUrbanIntelligence: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-blue-800 text-white">
       {/* Header */}
       <div className="relative z-20 pt-20 pb-8">
         <div className="container mx-auto px-4">
@@ -319,16 +381,39 @@ const SmartUrbanIntelligence: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-8"
           >
-            <div className="flex items-center justify-center gap-4 mb-4">
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F74c3699232444cda89c7094dd408430f%2F904ded2e5f2e4b65a4090ca759a801ec?format=webp&width=800"
-                alt="KX PATH Logo"
-                className="w-16 h-16 rounded-lg"
-              />
-              <div>
-                <Badge className="bg-gradient-to-r from-green-500 to-blue-500 text-white border-0 px-6 py-2 text-lg">
-                  🇦🇪 KX PATH UAE Edition
-                </Badge>
+            <div className="flex items-center justify-center gap-6 mb-6">
+              <div className="flex items-center gap-4">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F74c3699232444cda89c7094dd408430f%2F904ded2e5f2e4b65a4090ca759a801ec?format=webp&width=800"
+                  alt="KX PATH Logo"
+                  className="w-16 h-16 rounded-lg shadow-lg"
+                />
+                <div>
+                  <Badge className="bg-gradient-to-r from-green-500 to-blue-500 text-white border-0 px-6 py-2 text-lg">
+                    🇦🇪 KX PATH UAE Edition
+                  </Badge>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2 text-2xl font-bold text-blue-400">
+                <span>×</span>
+              </div>
+
+              <div className="flex items-center gap-4 bg-gradient-to-r from-blue-900/50 to-blue-800/50 backdrop-blur-lg rounded-2xl p-4 border border-blue-500/30">
+                <img
+                  src={ttnqAlJeara.logo}
+                  alt="TTNQ AL-JEARA Logo"
+                  className="w-16 h-16 rounded-lg shadow-lg bg-white p-2"
+                />
+                <div className="text-left">
+                  <h3 className="text-white font-bold text-lg">
+                    {ttnqAlJeara.nameAr}
+                  </h3>
+                  <p className="text-blue-300 text-sm">{ttnqAlJeara.name}</p>
+                  <Badge className="bg-blue-600 text-white mt-1">
+                    شريك استراتيجي
+                  </Badge>
+                </div>
               </div>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-green-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
@@ -491,6 +576,125 @@ const SmartUrbanIntelligence: React.FC = () => {
         </div>
       </div>
 
+      {/* TTNQ AL-JEARA Company Dashboard */}
+      <div className="container mx-auto px-4 mb-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="bg-gradient-to-r from-blue-900/40 to-blue-800/40 backdrop-blur-xl rounded-2xl border border-blue-500/30 p-6"
+        >
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-4">
+              <img
+                src={ttnqAlJeara.logo}
+                alt="TTNQ AL-JEARA"
+                className="w-12 h-12 rounded-lg bg-white p-2"
+              />
+              <div>
+                <h3 className="text-2xl font-bold text-white">
+                  {ttnqAlJeara.nameAr}
+                </h3>
+                <p className="text-blue-300">
+                  {ttnqAlJeara.experience} خبرة في الخدمات الفنية
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="text-right">
+                <div className="text-2xl font-bold text-blue-400">
+                  ⭐ {ttnqAlJeara.rating}
+                </div>
+                <div className="text-sm text-blue-300">تقييم العملاء</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-4 mb-6">
+            <div className="bg-blue-500/20 rounded-lg p-4 border border-blue-500/30">
+              <div className="text-2xl font-bold text-blue-400">
+                {ttnqAlJeara.activeProjects}
+              </div>
+              <div className="text-sm text-blue-300">مشاريع نشطة</div>
+            </div>
+            <div className="bg-green-500/20 rounded-lg p-4 border border-green-500/30">
+              <div className="text-2xl font-bold text-green-400">
+                {ttnqAlJeara.completedProjects}
+              </div>
+              <div className="text-sm text-green-300">مشاريع مكتملة</div>
+            </div>
+            <div className="bg-purple-500/20 rounded-lg p-4 border border-purple-500/30">
+              <div className="text-2xl font-bold text-purple-400">
+                {ttnqAlJeara.coverage.length}
+              </div>
+              <div className="text-sm text-purple-300">إمارات التغطية</div>
+            </div>
+            <div className="bg-yellow-500/20 rounded-lg p-4 border border-yellow-500/30">
+              <div className="text-2xl font-bold text-yellow-400">A+</div>
+              <div className="text-sm text-yellow-300">تصنيف الجودة</div>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-3">
+                التخصصات
+              </h4>
+              <div className="space-y-2">
+                {ttnqAlJeara.specialties.map((specialty, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-center gap-2 text-blue-300"
+                  >
+                    <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                    <span className="text-sm">{specialty}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-3">التواصل</h4>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2 text-blue-300">
+                  <span className="text-sm">
+                    📞 {ttnqAlJeara.contact.phone}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 text-blue-300">
+                  <span className="text-sm">
+                    📧 {ttnqAlJeara.contact.email}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 text-blue-300">
+                  <span className="text-sm">
+                    🌐 {ttnqAlJeara.contact.website}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex gap-3 mt-6">
+            <Button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800">
+              📞 تواصل مع الشركة
+            </Button>
+            <Button
+              variant="outline"
+              className="border-blue-500 text-blue-400 hover:bg-blue-500/10"
+            >
+              ���� عرض المشاريع
+            </Button>
+            <Button
+              variant="outline"
+              className="border-green-500 text-green-400 hover:bg-green-500/10"
+            >
+              🤝 طلب شراكة
+            </Button>
+          </div>
+        </motion.div>
+      </div>
+
       {/* Main Content Grid */}
       <div className="container mx-auto px-4 pb-8">
         <div className="grid lg:grid-cols-4 gap-6">
@@ -521,6 +725,18 @@ const SmartUrbanIntelligence: React.FC = () => {
                         {getOpportunityIcon(opportunity.type)}
                       </div>
                       <div className="flex-1 min-w-0">
+                        {opportunity.company === "ttnq_al_jeara" && (
+                          <div className="flex items-center gap-2 mb-2">
+                            <img
+                              src={ttnqAlJeara.logo}
+                              alt="TTNQ"
+                              className="w-6 h-6 rounded bg-white p-1"
+                            />
+                            <Badge className="bg-blue-600 text-white text-xs px-2 py-0">
+                              {ttnqAlJeara.nameAr}
+                            </Badge>
+                          </div>
+                        )}
                         <div className="flex items-center gap-2 mb-1">
                           {opportunity.urgent && (
                             <Badge className="bg-red-500 text-white text-xs px-1 py-0">
@@ -660,6 +876,23 @@ const SmartUrbanIntelligence: React.FC = () => {
                             <p className="text-sm text-gray-300">
                               {opportunity.locationAr}
                             </p>
+                            {opportunity.company === "ttnq_al_jeara" && (
+                              <div className="flex items-center gap-2 mt-2">
+                                <img
+                                  src={ttnqAlJeara.logo}
+                                  alt="TTNQ"
+                                  className="w-8 h-8 rounded bg-white p-1"
+                                />
+                                <div>
+                                  <div className="text-blue-300 font-semibold text-sm">
+                                    {ttnqAlJeara.nameAr}
+                                  </div>
+                                  <div className="text-xs text-gray-400">
+                                    شريك استراتيجي
+                                  </div>
+                                </div>
+                              </div>
+                            )}
                           </div>
                           <Badge
                             className={`${getStatusBadge(opportunity.status).color} text-white`}
@@ -670,7 +903,7 @@ const SmartUrbanIntelligence: React.FC = () => {
 
                         <div className="space-y-2 mb-4">
                           <div className="flex justify-between">
-                            <span className="text-gray-300">القيمة:</span>
+                            <span className="text-gray-300">ا��قيمة:</span>
                             <span className="font-bold text-green-400">
                               {formatPrice(opportunity.value)}
                             </span>
@@ -770,25 +1003,52 @@ const SmartUrbanIntelligence: React.FC = () => {
         </div>
       </div>
 
-      {/* Footer with KX PATH Branding */}
-      <div className="bg-black/60 backdrop-blur-xl border-t border-white/20 py-6">
-        <div className="container mx-auto px-4 text-center">
-          <div className="flex items-center justify-center gap-4 mb-2">
-            <img
-              src="https://cdn.builder.io/api/v1/image/assets%2F74c3699232444cda89c7094dd408430f%2F904ded2e5f2e4b65a4090ca759a801ec?format=webp&width=800"
-              alt="KX PATH Logo"
-              className="w-12 h-12 rounded-lg"
-            />
-            <div className="text-left">
-              <h3 className="text-white font-bold">KX PATH</h3>
-              <p className="text-gray-300 text-sm">
-                نظام تشغيل المناظر الطبيعية
-              </p>
+      {/* Footer with Partnership Branding */}
+      <div className="bg-black/60 backdrop-blur-xl border-t border-white/20 py-8">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            {/* KX PATH */}
+            <div className="flex items-center justify-center gap-4">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F74c3699232444cda89c7094dd408430f%2F904ded2e5f2e4b65a4090ca759a801ec?format=webp&width=800"
+                alt="KX PATH Logo"
+                className="w-16 h-16 rounded-lg shadow-lg"
+              />
+              <div className="text-left">
+                <h3 className="text-white font-bold text-xl">KX PATH</h3>
+                <p className="text-gray-300 text-sm">
+                  نظام تشغيل المناظر الطبيعية
+                </p>
+                <p className="text-blue-400 text-xs">تقنيات متقدمة</p>
+              </div>
+            </div>
+
+            {/* TTNQ AL-JEARA */}
+            <div className="flex items-center justify-center gap-4">
+              <img
+                src={ttnqAlJeara.logo}
+                alt="TTNQ AL-JEARA Logo"
+                className="w-16 h-16 rounded-lg bg-white p-2 shadow-lg"
+              />
+              <div className="text-left">
+                <h3 className="text-white font-bold text-xl">
+                  {ttnqAlJeara.nameAr}
+                </h3>
+                <p className="text-gray-300 text-sm">{ttnqAlJeara.name}</p>
+                <p className="text-blue-400 text-xs">شريك استراتيجي</p>
+              </div>
             </div>
           </div>
-          <p className="text-gray-400 text-sm">
-            🇦🇪 صُنع في الإمارات بفخر لخدمة الوطن • KX PATH v2.0 UAE Edition
-          </p>
+
+          <div className="text-center mt-6 pt-6 border-t border-gray-700">
+            <p className="text-gray-400 text-sm mb-2">
+              🤝 شراكة استراتيجية لخدمة الوطن والمجتمع
+            </p>
+            <p className="text-gray-500 text-xs">
+              🇦🇪 صُنع في الإمارات بفخر • KX PATH × TTNQ AL-JEARA • v2.0 UAE
+              Edition
+            </p>
+          </div>
         </div>
       </div>
     </div>
