@@ -11,6 +11,7 @@ import KnoxScan from "@/pages/KnoxScan";
 import GardenLanding from "@/pages/GardenLanding";
 import MarketIntelligence from "@/pages/MarketIntelligence";
 import SmartUrbanIntelligence from "@/pages/SmartUrbanIntelligence";
+import TTNQProfilePage from "@/pages/TTNQProfile";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -30,6 +31,7 @@ function Router() {
       <Route path="/garden" component={GardenLanding} />
       <Route path="/market" component={MarketIntelligence} />
       <Route path="/smart-terrain" component={SmartUrbanIntelligence} />
+      <Route path="/ttnq-profile" component={TTNQProfilePage} />
       <Route component={NotFound} />
     </Switch>
   );
