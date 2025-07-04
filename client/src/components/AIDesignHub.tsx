@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { 
-  Bot, Sparkles, Upload, Download, RefreshCw, Wand2, 
+import {
+  Bot, Sparkles, Upload, Download, RefreshCw, Wand2,
   Camera, FileImage, Cpu, Zap, Eye, Settings,
   MapPin, Thermometer, TreePine, Droplets, Sun
 } from "lucide-react";
@@ -14,7 +14,7 @@ const translations = {
     aiDesignHub: "AI Design Hub",
     subtitle: "Knox Design Engine - Advanced Landscape AI",
     knoxDesign: "KnoxDesign",
-    knoxQuote: "KnoxQuote", 
+    knoxQuote: "KnoxQuote",
     knoxPlants: "KnoxPlants",
     knoxSuggest: "KnoxSuggest",
     uploadImage: "Upload Site Image",
@@ -24,7 +24,7 @@ const translations = {
     generating: "AI is creating your design...",
     designReady: "Your AI design is ready!",
     download3D: "Download 3D Model",
-    downloadPlan: "Download Plans", 
+    downloadPlan: "Download Plans",
     getQuote: "Get Instant Quote",
     viewAR: "View in AR/VR",
     instantPricing: "Instant Pricing",
@@ -52,7 +52,7 @@ const translations = {
     subtitle: "محرك نوكس للتصميم - الذكاء الاصطناعي المتقدم للمناظر الطبيعية",
     knoxDesign: "نوكس للتصميم",
     knoxQuote: "نوكس للتسعير",
-    knoxPlants: "نوكس للنباتات", 
+    knoxPlants: "نوكس للنباتات",
     knoxSuggest: "نوكس للاقتراحات",
     uploadImage: "رفع صورة الموقع",
     describeDesign: "صف رؤيتك",
@@ -105,7 +105,7 @@ const aiEngines = [
     status: "active"
   },
   {
-    name: "KnoxQuote", 
+    name: "KnoxQuote",
     nameAr: "نوكس للتسعير",
     description: "Real-time pricing based on live market data and project specs",
     descriptionAr: "التسعير الفوري بناءً على بيانات السوق الحية ومواصفات المشروع",
@@ -115,11 +115,11 @@ const aiEngines = [
   },
   {
     name: "KnoxPlants",
-    nameAr: "نوكس للنباتات", 
+    nameAr: "نوكس للنباتات",
     description: "AI plant selection for UAE climate and soil conditions",
     descriptionAr: "اختيار النباتات الذكي لمناخ وتربة الإمارات",
     icon: TreePine,
-    color: "green", 
+    color: "green",
     status: "active"
   },
   {
@@ -142,22 +142,22 @@ export default function AIDesignHub({ language }: AIDesignHubProps) {
   const [selectedLocation, setSelectedLocation] = useState('Dubai');
   const [projectSize, setProjectSize] = useState('500');
   const [budget, setBudget] = useState('50000-100000');
-  
+
   const t = translations[language];
   const isRTL = language === 'ar';
 
   const handleGenerate = async () => {
     if (!designInput.trim()) return;
-    
+
     setIsGenerating(true);
     setCurrentStage(0);
-    
+
     // Simulate AI processing stages
     for (let i = 0; i < processingStages.length; i++) {
       setCurrentStage(i);
       await new Promise(resolve => setTimeout(resolve, 1500));
     }
-    
+
     setGeneratedDesign("ai-generated-design");
     setIsGenerating(false);
   };
@@ -211,13 +211,13 @@ export default function AIDesignHub({ language }: AIDesignHubProps) {
             <h3 className={`text-xl font-semibold text-white mb-6 ${isRTL ? 'text-right' : 'text-left'}`}>
               {t.knoxDesign}
             </h3>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
               <div>
                 <label className={`block text-white font-medium mb-2 ${isRTL ? 'text-right' : 'text-left'}`}>
                   {t.location}
                 </label>
-                <select 
+                <select
                   value={selectedLocation}
                   onChange={(e) => setSelectedLocation(e.target.value)}
                   className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white"
@@ -228,7 +228,7 @@ export default function AIDesignHub({ language }: AIDesignHubProps) {
                   <option value="Ajman">Ajman - عجمان</option>
                 </select>
               </div>
-              
+
               <div>
                 <label className={`block text-white font-medium mb-2 ${isRTL ? 'text-right' : 'text-left'}`}>
                   {t.projectSize} (m²)
@@ -250,7 +250,7 @@ export default function AIDesignHub({ language }: AIDesignHubProps) {
               <div className="border-2 border-dashed border-white/30 rounded-xl p-8 text-center hover:border-purple-400 transition-colors cursor-pointer">
                 <Upload className="w-12 h-12 text-gray-400 mx-auto mb-4" />
                 <p className="text-gray-300 mb-2">
-                  {language === 'ar' ? 'اسحب وأ��لت صورة الموقع هنا أو انقر للتصفح' : 'Drag & drop site image here or click to browse'}
+                  {language === 'ar' ? 'اسحب وأفلت صورة الموقع هنا أو انقر للتصفح' : 'Drag & drop site image here or click to browse'}
                 </p>
                 <p className="text-gray-500 text-sm">PNG, JPG up to 10MB</p>
               </div>
@@ -299,18 +299,20 @@ export default function AIDesignHub({ language }: AIDesignHubProps) {
                 <div className="text-center py-12">
                   <div className="mb-8">
                     <div className="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse">
-                      <processingStages[currentStage]?.icon className="w-10 h-10 text-white" />
+                      {processingStages[currentStage]?.icon && (
+                        <processingStages[currentStage].icon className="w-10 h-10 text-white" />
+                      )}
                     </div>
                     <div className="text-white font-semibold text-xl mb-2">{t.processingStage}</div>
                     <div className="text-purple-300 text-lg">{t[processingStages[currentStage]?.key as keyof typeof t]}</div>
                   </div>
-                  
+
                   {/* Progress Stages */}
                   <div className="flex justify-center items-center gap-4 mb-8">
                     {processingStages.map((stage, index) => (
                       <div key={index} className={`flex flex-col items-center ${index <= currentStage ? 'opacity-100' : 'opacity-30'}`}>
                         <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-2 ${
-                          index < currentStage ? 'bg-green-500' : 
+                          index < currentStage ? 'bg-green-500' :
                           index === currentStage ? `bg-gradient-to-r ${getColorClasses(stage.color)}` : 'bg-gray-600'
                         }`}>
                           <stage.icon className="w-6 h-6 text-white" />
@@ -333,7 +335,7 @@ export default function AIDesignHub({ language }: AIDesignHubProps) {
                       </button>
                     </div>
                   </div>
-                  
+
                   {/* 3D Design Preview */}
                   <div className="aspect-video bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-xl border border-white/20 flex items-center justify-center mb-6">
                     <div className="text-center">
@@ -346,7 +348,7 @@ export default function AIDesignHub({ language }: AIDesignHubProps) {
                       </div>
                     </div>
                   </div>
-                  
+
                   {/* Action Buttons */}
                   <div className="grid grid-cols-2 gap-4">
                     <button className="bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold py-3 px-4 rounded-lg hover:scale-105 transition-all">
