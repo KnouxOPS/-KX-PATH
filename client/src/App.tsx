@@ -3,13 +3,13 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import LandscapeOS from "@/pages/LandscapeOS";
+import KXPathOS from "@/pages/KXPathOS";
 import NotFound from "@/pages/not-found";
 
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={LandscapeOS} />
+      <Route path="/" component={KXPathOS} />
       <Route component={NotFound} />
     </Switch>
   );
