@@ -1,0 +1,678 @@
+{
+  "uae_zones": [
+    {
+      "zoneName": "Downtown Dubai",
+      "zoneNameArabic": "وسط مدينة دبي",
+      "emirate": "Dubai",
+      "coordinates": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [55.2744, 25.1972],
+            [55.2822, 25.1972],
+            [55.2822, 25.205],
+            [55.2744, 25.205],
+            [55.2744, 25.1972]
+          ]
+        ]
+      },
+      "centerPoint": { "latitude": 25.2011, "longitude": 55.2783 },
+      "terrainType": "urban",
+      "demographics": {
+        "population": 120000,
+        "households": 45000,
+        "averageIncome": 35000,
+        "predominantNationality": "UAE"
+      },
+      "constructionDensity": 95,
+      "propertyTypes": [
+        {
+          "type": "apartment",
+          "count": 8500,
+          "averageValue": 2800000,
+          "averageSize": 120
+        },
+        {
+          "type": "commercial",
+          "count": 450,
+          "averageValue": 15000000,
+          "averageSize": 200
+        }
+      ],
+      "landscapingPotential": {
+        "score": 85,
+        "factors": {
+          "climateSuitability": 75,
+          "soilQuality": 60,
+          "waterAvailability": 90,
+          "sunExposure": 95,
+          "accessibility": 100
+        }
+      },
+      "businessOpportunities": {
+        "competitorDensity": 15,
+        "marketSaturation": "optimal",
+        "averageProjectValue": 180000,
+        "growthProjection": 12
+      }
+    },
+    {
+      "zoneName": "Jumeirah",
+      "zoneNameArabic": "الجميرا",
+      "emirate": "Dubai",
+      "coordinates": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [55.2588, 25.1968],
+            [55.285, 25.1968],
+            [55.285, 25.22],
+            [55.2588, 25.22],
+            [55.2588, 25.1968]
+          ]
+        ]
+      },
+      "centerPoint": { "latitude": 25.2084, "longitude": 55.2719 },
+      "terrainType": "coastal",
+      "demographics": {
+        "population": 85000,
+        "households": 25000,
+        "averageIncome": 65000,
+        "predominantNationality": "UAE"
+      },
+      "constructionDensity": 70,
+      "propertyTypes": [
+        {
+          "type": "villa",
+          "count": 2450,
+          "averageValue": 3500000,
+          "averageSize": 450
+        },
+        {
+          "type": "apartment",
+          "count": 1200,
+          "averageValue": 2200000,
+          "averageSize": 150
+        }
+      ],
+      "landscapingPotential": {
+        "score": 95,
+        "factors": {
+          "climateSuitability": 90,
+          "soilQuality": 85,
+          "waterAvailability": 95,
+          "sunExposure": 100,
+          "accessibility": 95
+        }
+      },
+      "businessOpportunities": {
+        "competitorDensity": 8,
+        "marketSaturation": "undersaturated",
+        "averageProjectValue": 450000,
+        "growthProjection": 18
+      }
+    },
+    {
+      "zoneName": "Emirates Hills",
+      "zoneNameArabic": "تلال الإمارات",
+      "emirate": "Dubai",
+      "coordinates": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [55.1533, 25.1002],
+            [55.1789, 25.1002],
+            [55.1789, 25.125],
+            [55.1533, 25.125],
+            [55.1533, 25.1002]
+          ]
+        ]
+      },
+      "centerPoint": { "latitude": 25.1126, "longitude": 55.1661 },
+      "terrainType": "flat",
+      "demographics": {
+        "population": 12000,
+        "households": 3500,
+        "averageIncome": 150000,
+        "predominantNationality": "UAE"
+      },
+      "constructionDensity": 40,
+      "propertyTypes": [
+        {
+          "type": "villa",
+          "count": 650,
+          "averageValue": 15000000,
+          "averageSize": 800
+        }
+      ],
+      "landscapingPotential": {
+        "score": 98,
+        "factors": {
+          "climateSuitability": 95,
+          "soilQuality": 90,
+          "waterAvailability": 100,
+          "sunExposure": 100,
+          "accessibility": 100
+        }
+      },
+      "businessOpportunities": {
+        "competitorDensity": 3,
+        "marketSaturation": "undersaturated",
+        "averageProjectValue": 850000,
+        "growthProjection": 25
+      }
+    },
+    {
+      "zoneName": "Khalifa City",
+      "zoneNameArabic": "مدينة خليفة",
+      "emirate": "Abu Dhabi",
+      "coordinates": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [54.5988, 24.4184],
+            [54.62, 24.4184],
+            [54.62, 24.44],
+            [54.5988, 24.44],
+            [54.5988, 24.4184]
+          ]
+        ]
+      },
+      "centerPoint": { "latitude": 24.4292, "longitude": 54.6094 },
+      "terrainType": "suburban",
+      "demographics": {
+        "population": 95000,
+        "households": 28000,
+        "averageIncome": 45000,
+        "predominantNationality": "UAE"
+      },
+      "constructionDensity": 75,
+      "propertyTypes": [
+        {
+          "type": "villa",
+          "count": 3200,
+          "averageValue": 2200000,
+          "averageSize": 350
+        },
+        {
+          "type": "apartment",
+          "count": 2800,
+          "averageValue": 1500000,
+          "averageSize": 130
+        }
+      ],
+      "landscapingPotential": {
+        "score": 90,
+        "factors": {
+          "climateSuitability": 85,
+          "soilQuality": 80,
+          "waterAvailability": 95,
+          "sunExposure": 95,
+          "accessibility": 90
+        }
+      },
+      "businessOpportunities": {
+        "competitorDensity": 12,
+        "marketSaturation": "optimal",
+        "averageProjectValue": 320000,
+        "growthProjection": 15
+      }
+    },
+    {
+      "zoneName": "Saadiyat Island",
+      "zoneNameArabic": "جزيرة السعديات",
+      "emirate": "Abu Dhabi",
+      "coordinates": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [54.4211, 24.5172],
+            [54.4467, 24.5172],
+            [54.4467, 24.545],
+            [54.4211, 24.545],
+            [54.4211, 24.5172]
+          ]
+        ]
+      },
+      "centerPoint": { "latitude": 24.5311, "longitude": 54.4339 },
+      "terrainType": "coastal",
+      "demographics": {
+        "population": 45000,
+        "households": 15000,
+        "averageIncome": 85000,
+        "predominantNationality": "UAE"
+      },
+      "constructionDensity": 60,
+      "propertyTypes": [
+        {
+          "type": "villa",
+          "count": 1800,
+          "averageValue": 4200000,
+          "averageSize": 500
+        },
+        {
+          "type": "apartment",
+          "count": 3500,
+          "averageValue": 2800000,
+          "averageSize": 180
+        }
+      ],
+      "landscapingPotential": {
+        "score": 92,
+        "factors": {
+          "climateSuitability": 90,
+          "soilQuality": 85,
+          "waterAvailability": 90,
+          "sunExposure": 95,
+          "accessibility": 95
+        }
+      },
+      "businessOpportunities": {
+        "competitorDensity": 6,
+        "marketSaturation": "undersaturated",
+        "averageProjectValue": 680000,
+        "growthProjection": 22
+      }
+    },
+    {
+      "zoneName": "Al Khawaneej",
+      "zoneNameArabic": "الخوانيج",
+      "emirate": "Sharjah",
+      "coordinates": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [55.4533, 25.1802],
+            [55.4789, 25.1802],
+            [55.4789, 25.205],
+            [55.4533, 25.205],
+            [55.4533, 25.1802]
+          ]
+        ]
+      },
+      "centerPoint": { "latitude": 25.1926, "longitude": 55.4661 },
+      "terrainType": "suburban",
+      "demographics": {
+        "population": 68000,
+        "households": 22000,
+        "averageIncome": 38000,
+        "predominantNationality": "UAE"
+      },
+      "constructionDensity": 65,
+      "propertyTypes": [
+        {
+          "type": "villa",
+          "count": 2100,
+          "averageValue": 1800000,
+          "averageSize": 300
+        },
+        {
+          "type": "apartment",
+          "count": 1500,
+          "averageValue": 1200000,
+          "averageSize": 110
+        }
+      ],
+      "landscapingPotential": {
+        "score": 82,
+        "factors": {
+          "climateSuitability": 80,
+          "soilQuality": 75,
+          "waterAvailability": 85,
+          "sunExposure": 90,
+          "accessibility": 80
+        }
+      },
+      "businessOpportunities": {
+        "competitorDensity": 10,
+        "marketSaturation": "optimal",
+        "averageProjectValue": 280000,
+        "growthProjection": 14
+      }
+    },
+    {
+      "zoneName": "Al Nuaimiya",
+      "zoneNameArabic": "النعيمية",
+      "emirate": "Ajman",
+      "coordinates": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [55.4533, 25.3954],
+            [55.4789, 25.3954],
+            [55.4789, 25.415],
+            [55.4533, 25.415],
+            [55.4533, 25.3954]
+          ]
+        ]
+      },
+      "centerPoint": { "latitude": 25.4052, "longitude": 55.4661 },
+      "terrainType": "urban",
+      "demographics": {
+        "population": 125000,
+        "households": 35000,
+        "averageIncome": 28000,
+        "predominantNationality": "Pakistani"
+      },
+      "constructionDensity": 85,
+      "propertyTypes": [
+        {
+          "type": "villa",
+          "count": 850,
+          "averageValue": 950000,
+          "averageSize": 250
+        },
+        {
+          "type": "apartment",
+          "count": 4200,
+          "averageValue": 650000,
+          "averageSize": 90
+        }
+      ],
+      "landscapingPotential": {
+        "score": 70,
+        "factors": {
+          "climateSuitability": 75,
+          "soilQuality": 65,
+          "waterAvailability": 70,
+          "sunExposure": 85,
+          "accessibility": 75
+        }
+      },
+      "businessOpportunities": {
+        "competitorDensity": 18,
+        "marketSaturation": "saturated",
+        "averageProjectValue": 150000,
+        "growthProjection": 8
+      }
+    },
+    {
+      "zoneName": "Al Hamra",
+      "zoneNameArabic": "الحمراء",
+      "emirate": "Ras Al Khaimah",
+      "coordinates": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [55.7241, 25.6682],
+            [55.7497, 25.6682],
+            [55.7497, 25.695],
+            [55.7241, 25.695],
+            [55.7241, 25.6682]
+          ]
+        ]
+      },
+      "centerPoint": { "latitude": 25.6816, "longitude": 55.7369 },
+      "terrainType": "coastal",
+      "demographics": {
+        "population": 35000,
+        "households": 12000,
+        "averageIncome": 42000,
+        "predominantNationality": "UAE"
+      },
+      "constructionDensity": 55,
+      "propertyTypes": [
+        {
+          "type": "villa",
+          "count": 1200,
+          "averageValue": 1650000,
+          "averageSize": 320
+        },
+        {
+          "type": "apartment",
+          "count": 2800,
+          "averageValue": 1100000,
+          "averageSize": 120
+        }
+      ],
+      "landscapingPotential": {
+        "score": 88,
+        "factors": {
+          "climateSuitability": 85,
+          "soilQuality": 80,
+          "waterAvailability": 90,
+          "sunExposure": 95,
+          "accessibility": 85
+        }
+      },
+      "businessOpportunities": {
+        "competitorDensity": 5,
+        "marketSaturation": "undersaturated",
+        "averageProjectValue": 380000,
+        "growthProjection": 20
+      }
+    },
+    {
+      "zoneName": "Al Manama",
+      "zoneNameArabic": "المنامة",
+      "emirate": "Fujairah",
+      "coordinates": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [56.32, 25.115],
+            [56.345, 25.115],
+            [56.345, 25.135],
+            [56.32, 25.135],
+            [56.32, 25.115]
+          ]
+        ]
+      },
+      "centerPoint": { "latitude": 25.125, "longitude": 56.3325 },
+      "terrainType": "mountainous",
+      "demographics": {
+        "population": 28000,
+        "households": 8500,
+        "averageIncome": 35000,
+        "predominantNationality": "UAE"
+      },
+      "constructionDensity": 45,
+      "propertyTypes": [
+        {
+          "type": "villa",
+          "count": 680,
+          "averageValue": 1400000,
+          "averageSize": 280
+        },
+        {
+          "type": "apartment",
+          "count": 1200,
+          "averageValue": 850000,
+          "averageSize": 100
+        }
+      ],
+      "landscapingPotential": {
+        "score": 78,
+        "factors": {
+          "climateSuitability": 80,
+          "soilQuality": 70,
+          "waterAvailability": 85,
+          "sunExposure": 90,
+          "accessibility": 65
+        }
+      },
+      "businessOpportunities": {
+        "competitorDensity": 3,
+        "marketSaturation": "undersaturated",
+        "averageProjectValue": 250000,
+        "growthProjection": 16
+      }
+    },
+    {
+      "zoneName": "Old Town",
+      "zoneNameArabic": "المدينة القديمة",
+      "emirate": "Umm Al Quwain",
+      "coordinates": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [55.54, 25.565],
+            [55.565, 25.565],
+            [55.565, 25.585],
+            [55.54, 25.585],
+            [55.54, 25.565]
+          ]
+        ]
+      },
+      "centerPoint": { "latitude": 25.575, "longitude": 55.5525 },
+      "terrainType": "coastal",
+      "demographics": {
+        "population": 18000,
+        "households": 5500,
+        "averageIncome": 32000,
+        "predominantNationality": "UAE"
+      },
+      "constructionDensity": 40,
+      "propertyTypes": [
+        {
+          "type": "villa",
+          "count": 450,
+          "averageValue": 1200000,
+          "averageSize": 260
+        },
+        {
+          "type": "apartment",
+          "count": 800,
+          "averageValue": 750000,
+          "averageSize": 95
+        }
+      ],
+      "landscapingPotential": {
+        "score": 75,
+        "factors": {
+          "climateSuitability": 75,
+          "soilQuality": 70,
+          "waterAvailability": 80,
+          "sunExposure": 85,
+          "accessibility": 65
+        }
+      },
+      "businessOpportunities": {
+        "competitorDensity": 2,
+        "marketSaturation": "undersaturated",
+        "averageProjectValue": 220000,
+        "growthProjection": 12
+      }
+    }
+  ],
+  "construction_alerts": [
+    {
+      "title": "New Luxury Villa Under Construction - Emirates Hills",
+      "titleArabic": "فيلا فاخرة جديدة قيد الإنشاء - تلال الإمارات",
+      "description": "A 1,200 sqm luxury villa with extensive gardens is under construction. High potential for premium landscaping services.",
+      "descriptionArabic": "فيلا فاخرة بمساحة 1200 متر مربع مع حدائق واسعة قيد الإنشاء. إمكانية عالية لخدمات تنسيق الحدائق المتميزة.",
+      "coordinates": { "latitude": 25.115, "longitude": 55.168 },
+      "alertType": "new_construction",
+      "propertyDetails": {
+        "type": "villa",
+        "size": {
+          "plotSize": 1200,
+          "builtUpArea": 800,
+          "bedrooms": 6,
+          "bathrooms": 8
+        },
+        "value": {
+          "estimated": 18000000,
+          "currency": "AED",
+          "pricePerSqm": 15000
+        },
+        "features": ["garden", "pool", "garage", "maid_room", "driver_room"]
+      },
+      "source": "DLD_Dubai",
+      "sourceDetails": { "reference": "DLD-2024-001523", "confidence": 95 },
+      "priority": "high",
+      "businessPotential": {
+        "score": 95,
+        "estimatedProjectValue": {
+          "min": 800000,
+          "max": 1200000,
+          "most_likely": 950000
+        }
+      }
+    },
+    {
+      "title": "Villa Sale Completed - Jumeirah",
+      "titleArabic": "اكتمل بيع فيلا - الجميرا",
+      "description": "A beachfront villa with mature garden was sold. New owners may require garden renovation services.",
+      "descriptionArabic": "تم بيع فيلا على الشاطئ مع حديقة ناضجة. قد يحتاج المالكون الجدد لخدمات تجديد الحدائق.",
+      "coordinates": { "latitude": 25.21, "longitude": 55.275 },
+      "alertType": "villa_purchased",
+      "propertyDetails": {
+        "type": "villa",
+        "size": {
+          "plotSize": 800,
+          "builtUpArea": 650,
+          "bedrooms": 5,
+          "bathrooms": 6
+        },
+        "value": {
+          "estimated": 8500000,
+          "currency": "AED",
+          "pricePerSqm": 10625
+        },
+        "features": ["garden", "pool", "garage", "balcony", "terrace"]
+      },
+      "source": "DLD_Dubai",
+      "sourceDetails": { "reference": "DLD-2024-001487", "confidence": 90 },
+      "priority": "medium",
+      "businessPotential": {
+        "score": 82,
+        "estimatedProjectValue": {
+          "min": 300000,
+          "max": 600000,
+          "most_likely": 450000
+        }
+      }
+    },
+    {
+      "title": "Residential Development Permit Issued - Al Khawaneej",
+      "titleArabic": "صدور ترخيص مجمع سكني - الخوانيج",
+      "description": "Permit issued for 25-villa residential development. Opportunity for comprehensive landscaping contract.",
+      "descriptionArabic": "تم إصدار ترخيص لمجمع سكني يضم 25 فيلا. فرصة للحصول على عقد تنسيق حدائق شامل.",
+      "coordinates": { "latitude": 25.19, "longitude": 55.47 },
+      "alertType": "permit_issued",
+      "propertyDetails": {
+        "type": "commercial",
+        "size": { "plotSize": 15000, "builtUpArea": 8000 },
+        "value": { "estimated": 45000000, "currency": "AED" },
+        "features": ["garden", "pool", "garage", "security"]
+      },
+      "source": "RERA_Sharjah",
+      "sourceDetails": { "reference": "SHJ-DEV-2024-089", "confidence": 88 },
+      "priority": "urgent",
+      "businessPotential": {
+        "score": 98,
+        "estimatedProjectValue": {
+          "min": 2000000,
+          "max": 3500000,
+          "most_likely": 2750000
+        }
+      }
+    },
+    {
+      "title": "Commercial Property Renovation - Khalifa City",
+      "titleArabic": "تجديد عقار تجاري - مدينة خليفة",
+      "description": "Office complex undergoing major renovation including outdoor spaces and landscaping areas.",
+      "descriptionArabic": "مجمع مكاتب يخضع لتجديد كبير يشمل المساحات الخارجية ومناطق تنسيق الحدائق.",
+      "coordinates": { "latitude": 24.43, "longitude": 54.61 },
+      "alertType": "renovation",
+      "propertyDetails": {
+        "type": "commercial",
+        "size": { "plotSize": 2500, "builtUpArea": 4000 },
+        "value": { "estimated": 12000000, "currency": "AED" },
+        "features": ["garden", "garage", "security"]
+      },
+      "source": "ADRE_AbuDhabi",
+      "sourceDetails": { "reference": "AD-REN-2024-234", "confidence": 85 },
+      "priority": "medium",
+      "businessPotential": {
+        "score": 75,
+        "estimatedProjectValue": {
+          "min": 200000,
+          "max": 400000,
+          "most_likely": 300000
+        }
+      }
+    }
+  ]
+}
