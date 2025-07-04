@@ -5,7 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { useAuth } from "@/hooks/useAuth";
 import Landing from "@/pages/Landing";
-import Dashboard from "@/pages/Dashboard";
+import CryptoDashboard from "@/pages/CryptoDashboard";
 import KnoxRadar from "@/pages/KnoxRadar";
 import KnoxScan from "@/pages/KnoxScan";
 import NotFound from "@/pages/not-found";
@@ -19,7 +19,7 @@ function Router() {
         <Route path="/" component={Landing} />
       ) : (
         <>
-          <Route path="/" component={Dashboard} />
+          <Route path="/" component={CryptoDashboard} />
           <Route path="/knox-radar" component={KnoxRadar} />
           <Route path="/knox-scan" component={KnoxScan} />
         </>
