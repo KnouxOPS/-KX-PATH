@@ -1,12 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  MapContainer,
-  TileLayer,
-  Marker,
-  Popup,
-  Circle,
-  useMap,
-} from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, Circle } from "react-leaflet";
 import { LatLngTuple } from "leaflet";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -132,7 +125,7 @@ const uaeDistricts: District[] = [
     projects: 38,
     newConstructions: 22,
     landscapeOpportunities: 31,
-    lastActivity: "منذ 30 دقيقة",
+    lastActivity: "منذ 30 ��قيقة",
     topCompany: "Emirates Green",
     avgBudget: "320,000 AED",
     terrain: "residential",
@@ -543,7 +536,7 @@ const SmartLandscapeRadar: React.FC = () => {
             مستعد لتحويل الإمارات خضراء؟
           </h3>
           <p className="text-xl text-gray-300 mb-6">
-            انضم إلى شبكة الشركات الذكية واكتشف الفرص قبل المنافسين
+            ا��ضم إلى شبكة الشركات الذكية واكتشف الفرص قبل المنافسين
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
