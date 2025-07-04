@@ -676,18 +676,18 @@ const SmartUrbanIntelligence: React.FC = () => {
           </div>
 
           <div className="flex gap-3 mt-6">
-            <Button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800">
+            <Button
+              className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800"
+              onClick={() => window.open("/ttnq-profile", "_blank")}
+            >
+              🏢 عرض ملف الشركة الكامل
+            </Button>
+            <Button className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800">
               📞 تواصل مع الشركة
             </Button>
             <Button
               variant="outline"
-              className="border-blue-500 text-blue-400 hover:bg-blue-500/10"
-            >
-              ���� عرض المشاريع
-            </Button>
-            <Button
-              variant="outline"
-              className="border-green-500 text-green-400 hover:bg-green-500/10"
+              className="border-purple-500 text-purple-400 hover:bg-purple-500/10"
             >
               🤝 طلب شراكة
             </Button>
@@ -903,7 +903,7 @@ const SmartUrbanIntelligence: React.FC = () => {
 
                         <div className="space-y-2 mb-4">
                           <div className="flex justify-between">
-                            <span className="text-gray-300">ا��قيمة:</span>
+                            <span className="text-gray-300">القيمة:</span>
                             <span className="font-bold text-green-400">
                               {formatPrice(opportunity.value)}
                             </span>
@@ -1042,7 +1042,7 @@ const SmartUrbanIntelligence: React.FC = () => {
 
           <div className="text-center mt-6 pt-6 border-t border-gray-700">
             <p className="text-gray-400 text-sm mb-2">
-              🤝 شراكة استراتيجية لخدمة الوطن والمجتمع
+              🤝 ش��اكة استراتيجية لخدمة الوطن والمجتمع
             </p>
             <p className="text-gray-500 text-xs">
               🇦🇪 صُنع في الإمارات بفخر • KX PATH × TTNQ AL-JEARA • v2.0 UAE
