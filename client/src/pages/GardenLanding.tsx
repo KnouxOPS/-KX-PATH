@@ -7,6 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import SmartLandscapeRadar from "@/components/SmartLandscapeRadar";
 
 export default function GardenLanding() {
   const services = [
@@ -344,6 +345,9 @@ export default function GardenLanding() {
           </div>
         </div>
       </section>
+
+      {/* Smart Landscape Radar Section */}
+      <SmartLandscapeRadar />
 
       {/* CTA Section */}
       <section className="py-20 bg-green-900 text-white">
