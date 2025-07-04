@@ -8,6 +8,7 @@ import Landing from "@/pages/Landing";
 import Dashboard from "@/pages/Dashboard";
 import KnoxRadar from "@/pages/KnoxRadar";
 import KnoxScan from "@/pages/KnoxScan";
+import GardenLanding from "@/pages/GardenLanding";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -24,6 +25,7 @@ function Router() {
           <Route path="/knox-scan" component={KnoxScan} />
         </>
       )}
+      <Route path="/garden" component={GardenLanding} />
       <Route component={NotFound} />
     </Switch>
   );
