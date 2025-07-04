@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import {
-  TreePine,
-  Waves,
-  Lightbulb,
-  Zap,
   Sparkles,
-  CheckCircle,
+  MapPin,
+  Users,
+  TrendingUp,
+  Zap,
+  Crown,
+  Globe,
+  Building,
+  Leaf,
 } from "lucide-react";
 
 interface EpicSplashProps {
@@ -13,259 +16,382 @@ interface EpicSplashProps {
 }
 
 export default function EpicSplash({ onComplete }: EpicSplashProps) {
+  const [stage, setStage] = useState(0);
   const [progress, setProgress] = useState(0);
-  const [currentPhase, setCurrentPhase] = useState(0);
-  const [showLogo, setShowLogo] = useState(false);
-  const [showTagline, setShowTagline] = useState(false);
-  const [showProgress, setShowProgress] = useState(false);
-  const [completedPhases, setCompletedPhases] = useState<number[]>([]);
+  const [showLogo3D, setShowLogo3D] = useState(false);
+  const [showUAEFlag, setShowUAEFlag] = useState(false);
 
-  const phases = [
-    {
-      text: "تهيئة نظام اللاندسكيب الذكي",
-      textEn: "Initializing Smart Landscape OS",
-      duration: 800,
-    },
-    {
-      text: "تحميل ستوديو الذكاء الاصطناعي",
-      textEn: "Loading AI Design Studio",
-      duration: 1000,
-    },
-    {
-      text: "تفعيل الرادار التسويقي",
-      textEn: "Activating Smart Marketing Radar",
-      duration: 900,
-    },
-    {
-      text: "ربط أنظمة الري الذكية",
-      textEn: "Connecting Smart Irrigation Systems",
-      duration: 700,
-    },
-    {
-      text: "تحضير واجهة المستخدم",
-      textEn: "Preparing User Interface",
-      duration: 600,
-    },
-    { text: "إطلاق طريق الخبرة", textEn: "Launching KX PATH", duration: 800 },
+  const stages = [
+    "🌱 تحضير نظام KX PATH للسوق الإماراتي...",
+    "🤖 تفعيل محركات الذكاء الاصطناعي المتقدمة...",
+    "📡 الاتصال بقواعد البيانات الإماراتية المحلية...",
+    "🗺️ تحديث خرائط المشاريع والمناطق الإماراتية...",
+    "📊 تحليل السوق العقاري والمناظر الطبيعية...",
+    "🛰️ تفعيل الرادار الذكي لرصد الفرص...",
+    "🇦🇪 تخصيص النظام للسوق الإماراتي 100%...",
+    "✅ KX PATH جاهز. أهلاً بك في مستقبل المناظر الطبيعية الذكية",
   ];
 
   useEffect(() => {
-    // Show logo animation
-    setTimeout(() => setShowLogo(true), 300);
-    setTimeout(() => setShowTagline(true), 800);
-    setTimeout(() => setShowProgress(true), 1200);
+    const timer = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          if (stage < stages.length - 1) {
+            setStage((s) => s + 1);
+            if (stage === 2) setShowLogo3D(true);
+            if (stage === 5) setShowUAEFlag(true);
+            return 0;
+          } else {
+            clearInterval(timer);
+            setTimeout(onComplete, 2000);
+            return 100;
+          }
+        }
+        return prev + 1.5;
+      });
+    }, 40);
 
-    // Phase progression
-    let currentProgress = 0;
-    const totalPhases = phases.length;
-
-    phases.forEach((phase, index) => {
-      setTimeout(
-        () => {
-          setCurrentPhase(index);
-
-          // Simulate phase completion
-          setTimeout(() => {
-            setCompletedPhases((prev) => [...prev, index]);
-            currentProgress = ((index + 1) / totalPhases) * 100;
-            setProgress(currentProgress);
-
-            // Complete splash after last phase
-            if (index === totalPhases - 1) {
-              setTimeout(() => {
-                onComplete();
-              }, 1000);
-            }
-          }, phase.duration);
-        },
-        1500 + index * 1200,
-      );
-    });
-  }, [onComplete]);
+    return () => clearInterval(timer);
+  }, [stage, onComplete]);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-emerald-900 via-teal-900 to-green-900 overflow-hidden">
-      {/* Animated Background */}
+    <div className="fixed inset-0 bg-gradient-to-br from-emerald-900 via-teal-900 to-green-900 flex items-center justify-center overflow-hidden">
+      {/* Advanced Background Effects */}
       <div className="absolute inset-0">
-        {/* Floating Particles */}
-        {Array.from({ length: 20 }).map((_, i) => (
+        {/* Main Gradient Orbs */}
+        <div className="absolute left-[200px] top-[-128px] w-[400px] h-[500px] rounded-full bg-gradient-to-b from-emerald-400/30 to-teal-400/20 blur-[200px] animate-pulse" />
+        <div
+          className="absolute right-[100px] top-[-100px] w-[300px] h-[400px] rounded-full bg-gradient-to-b from-green-400/20 to-emerald-400/10 blur-[100px] animate-pulse"
+          style={{ animationDelay: "2s" }}
+        />
+
+        {/* UAE Coastline Animation */}
+        <svg
+          className="absolute inset-0 w-full h-full opacity-20"
+          viewBox="0 0 800 600"
+        >
+          <defs>
+            <linearGradient
+              id="uaeGradient"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
+              <stop offset="0%" stopColor="#10B981" />
+              <stop offset="50%" stopColor="#0D9488" />
+              <stop offset="100%" stopColor="#047857" />
+            </linearGradient>
+          </defs>
+
+          <path
+            d="M100,200 Q200,180 300,190 Q400,200 500,180 Q600,170 700,185 L720,220 Q600,240 500,250 Q400,260 300,250 Q200,240 100,250 Z"
+            fill="url(#uaeGradient)"
+            opacity="0.3"
+            className="animate-pulse"
+          />
+
+          {/* UAE Emirates */}
+          <circle
+            cx="450"
+            cy="320"
+            r="8"
+            fill="#10B981"
+            opacity="0.6"
+            className="animate-ping"
+          />
+          <circle
+            cx="480"
+            cy="340"
+            r="6"
+            fill="#10B981"
+            opacity="0.6"
+            className="animate-ping"
+            style={{ animationDelay: "1s" }}
+          />
+          <circle
+            cx="420"
+            cy="300"
+            r="5"
+            fill="#10B981"
+            opacity="0.6"
+            className="animate-ping"
+            style={{ animationDelay: "2s" }}
+          />
+        </svg>
+
+        {/* Smart Particles representing projects */}
+        {Array.from({ length: 25 }).map((_, i) => (
           <div
             key={i}
-            className="absolute w-2 h-2 bg-emerald-400/30 rounded-full animate-float"
+            className="absolute w-1 h-1 bg-emerald-400/40 rounded-full animate-float particle"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${3 + Math.random() * 4}s`,
+              left: `${10 + i * 3.5}%`,
+              top: `${5 + i * 3.8}%`,
+              animationDelay: `${i * 0.3}s`,
+              animationDuration: `${2 + Math.random() * 4}s`,
             }}
           />
         ))}
 
-        {/* Gradient Orbs */}
-        <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-br from-emerald-400/20 to-teal-400/10 rounded-full blur-3xl animate-pulse" />
+        {/* Floating UAE Elements */}
+        <div className="absolute top-20 left-1/4 w-8 h-8 text-emerald-400/30 animate-leaf-sway text-4xl">
+          🌿
+        </div>
         <div
-          className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-br from-green-400/15 to-emerald-400/5 rounded-full blur-3xl animate-pulse"
+          className="absolute top-40 right-1/3 w-6 h-6 text-green-400/20 animate-water-wave text-3xl"
           style={{ animationDelay: "2s" }}
-        />
-
-        {/* Dynamic Grid */}
+        >
+          🏗️
+        </div>
         <div
-          className={
-            'absolute inset-0 bg-[url(\'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23ffffff" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>\')] opacity-20'
-          }
-        />
+          className="absolute bottom-40 left-1/3 w-10 h-10 text-teal-400/25 animate-light-flicker text-5xl"
+          style={{ animationDelay: "4s" }}
+        >
+          🇦🇪
+        </div>
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 text-center max-w-2xl mx-auto px-8">
-        {/* Logo Animation */}
-        <div
-          className={`transition-all duration-1000 ${showLogo ? "opacity-100 scale-100" : "opacity-0 scale-50"}`}
-        >
-          <div className="relative mb-8">
-            {/* Logo Icons with Rotation */}
-            <div className="flex justify-center items-center gap-4 mb-6">
-              <div className="relative">
-                <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-green-500 rounded-2xl flex items-center justify-center animate-spin-slow">
-                  <TreePine className="w-8 h-8 text-white" />
-                </div>
-                <div className="absolute inset-0 w-16 h-16 bg-gradient-to-br from-emerald-400 to-green-500 rounded-2xl opacity-30 animate-ping" />
-              </div>
+      <div className="relative z-10 text-center max-w-3xl mx-auto px-8">
+        {/* Enhanced Logo Animation */}
+        <div className="mb-16">
+          <div className="relative">
+            {/* 3D Logo Container */}
+            <div className="w-40 h-40 mx-auto mb-8 relative">
+              {/* Background Glow - Enhanced */}
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/50 via-teal-400/50 to-green-400/50 rounded-3xl blur-2xl animate-pulse"></div>
 
-              <div className="relative">
-                <div className="w-12 h-12 bg-gradient-to-br from-teal-400 to-cyan-500 rounded-xl flex items-center justify-center animate-bounce">
-                  <Waves className="w-6 h-6 text-white" />
-                </div>
-              </div>
-
-              <div className="relative">
-                <div className="w-14 h-14 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center animate-pulse">
-                  <Lightbulb className="w-7 h-7 text-white" />
-                </div>
-                <Sparkles className="absolute -top-2 -right-2 w-6 h-6 text-yellow-300 animate-spin" />
-              </div>
-            </div>
-
-            {/* Company Name with Glow Effect */}
-            <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-emerald-400 via-teal-300 to-green-400 bg-clip-text text-transparent animate-pulse">
-              KX PATH
-            </h1>
-            <div className="text-3xl md:text-4xl font-bold text-white mb-2 opacity-90">
-              طريق الخبرة
-            </div>
-          </div>
-        </div>
-
-        {/* Tagline */}
-        <div
-          className={`transition-all duration-1000 delay-500 ${showTagline ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-        >
-          <p className="text-xl md:text-2xl text-emerald-200 mb-2 font-medium">
-            نظام تشغيل اللاندسكيب الذكي
-          </p>
-          <p className="text-lg md:text-xl text-teal-300 mb-8 opacity-80">
-            Smart Landscape Operating System
-          </p>
-
-          {/* Feature Highlights */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 text-sm">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-              <div className="text-2xl mb-1">🤖</div>
-              <div className="text-white">AI Design</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-              <div className="text-2xl mb-1">📡</div>
-              <div className="text-white">Smart Radar</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-              <div className="text-2xl mb-1">🗺️</div>
-              <div className="text-white">Live Map</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-              <div className="text-2xl mb-1">💧</div>
-              <div className="text-white">IoT Systems</div>
-            </div>
-          </div>
-        </div>
-
-        {/* Progress Section */}
-        <div
-          className={`transition-all duration-1000 delay-1000 ${showProgress ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-        >
-          {/* Current Phase */}
-          <div className="mb-6">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <Zap className="w-5 h-5 text-emerald-400 animate-pulse" />
-              <div className="text-white font-medium">
-                {phases[currentPhase]?.text}
-              </div>
-              <div className="text-emerald-300 text-sm opacity-70">
-                {phases[currentPhase]?.textEn}
-              </div>
-            </div>
-          </div>
-
-          {/* Progress Bar */}
-          <div className="mb-6">
-            <div className="flex justify-between text-sm text-emerald-300 mb-2">
-              <span>التقدم</span>
-              <span>{Math.round(progress)}%</span>
-            </div>
-            <div className="w-full bg-white/20 rounded-full h-3 overflow-hidden">
+              {/* Secondary Glow Ring */}
               <div
-                className="h-full bg-gradient-to-r from-emerald-400 via-teal-400 to-green-400 rounded-full transition-all duration-500 relative overflow-hidden"
-                style={{ width: `${progress}%` }}
-              >
-                {/* Shimmer Effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" />
-              </div>
-            </div>
-          </div>
+                className="absolute inset-2 bg-gradient-to-br from-yellow-400/30 to-orange-400/30 rounded-3xl blur-xl animate-pulse"
+                style={{ animationDelay: "1s" }}
+              ></div>
 
-          {/* Phase List */}
-          <div className="space-y-2">
-            {phases.map((phase, index) => (
+              {/* Logo Background - Enhanced */}
               <div
-                key={index}
-                className={`flex items-center gap-3 text-sm transition-all duration-300 ${
-                  index === currentPhase
-                    ? "text-emerald-300 scale-105"
-                    : completedPhases.includes(index)
-                      ? "text-green-400"
-                      : "text-gray-400"
+                className={`relative w-full h-full bg-gradient-to-br from-emerald-500 via-teal-600 to-green-600 rounded-3xl flex items-center justify-center border-4 border-emerald-400/30 backdrop-blur-lg transition-all duration-1000 ${
+                  showLogo3D ? "transform rotate-y-12 scale-110" : ""
                 }`}
               >
-                {completedPhases.includes(index) ? (
-                  <CheckCircle className="w-4 h-4 text-green-400" />
-                ) : index === currentPhase ? (
-                  <div className="w-4 h-4 border-2 border-emerald-400 border-t-transparent rounded-full animate-spin" />
-                ) : (
-                  <div className="w-4 h-4 border-2 border-gray-500 rounded-full" />
-                )}
-                <span>{phase.text}</span>
+                {/* KX PATH Logo */}
+                <div className="text-center">
+                  <div className="text-5xl font-bold text-white mb-2 filter drop-shadow-lg">
+                    KX
+                  </div>
+                  <div className="text-lg text-emerald-200 font-medium">
+                    PATH
+                  </div>
+                  <div className="text-xs text-emerald-300 mt-1">UAE 🇦🇪</div>
+                </div>
               </div>
-            ))}
-          </div>
 
-          {/* Loading Animation */}
-          <div className="mt-8">
-            <div className="flex justify-center space-x-2">
-              {[0, 1, 2].map((i) => (
+              {/* Enhanced Orbiting Elements */}
+              <div
+                className="absolute inset-0 animate-spin"
+                style={{ animationDuration: "8s" }}
+              >
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                  <div className="w-8 h-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
+                    <Sparkles className="w-5 h-5 text-white" />
+                  </div>
+                </div>
+              </div>
+              <div
+                className="absolute inset-0 animate-spin"
+                style={{
+                  animationDuration: "12s",
+                  animationDirection: "reverse",
+                }}
+              >
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2">
+                  <div className="w-8 h-8 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full flex items-center justify-center">
+                    <MapPin className="w-5 h-5 text-white" />
+                  </div>
+                </div>
+              </div>
+              <div
+                className="absolute inset-0 animate-spin"
+                style={{ animationDuration: "15s" }}
+              >
+                <div className="absolute left-0 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                  <div className="w-8 h-8 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center">
+                    <Building className="w-5 h-5 text-white" />
+                  </div>
+                </div>
+              </div>
+              <div
+                className="absolute inset-0 animate-spin"
+                style={{
+                  animationDuration: "10s",
+                  animationDirection: "reverse",
+                }}
+              >
+                <div className="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2">
+                  <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-emerald-600 rounded-full flex items-center justify-center">
+                    <Leaf className="w-5 h-5 text-white" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Enhanced Animated Title */}
+            <div className="space-y-6">
+              <h1 className="text-6xl font-bold bg-gradient-to-r from-emerald-300 via-teal-300 to-green-300 bg-clip-text text-transparent animate-pulse">
+                KX PATH
+              </h1>
+              <h2 className="text-3xl text-emerald-200 font-light">
+                طريق الخبرة | Smart Landscape AI-OS
+              </h2>
+              <div
+                className={`transition-all duration-1000 ${showUAEFlag ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
+              >
+                <div className="inline-flex items-center gap-3 bg-gradient-to-r from-red-500/20 via-white/10 to-green-500/20 backdrop-blur-lg rounded-2xl border border-emerald-400/30 px-6 py-3">
+                  <span className="text-2xl">🇦🇪</span>
+                  <span className="text-emerald-300 font-semibold">
+                    مخصص 100% للسوق الإماراتي
+                  </span>
+                  <span className="text-2xl">🇦🇪</span>
+                </div>
+              </div>
+              <p className="text-emerald-400 max-w-2xl mx-auto text-lg leading-relaxed">
+                أول نظام تشغيل ذكي متكامل للمناظر الطبيعية في دولة الإمارات
+                العربية المتحدة
+                <br />
+                مدعوم بالذكاء الاصطناعي والرادار الذكي لرصد الفرص العقارية
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Enhanced Loading Section */}
+        <div className="space-y-8">
+          {/* Current Stage with UAE Theme */}
+          <div className="bg-white/10 backdrop-blur-lg rounded-2xl border border-emerald-400/30 p-8">
+            <div className="text-emerald-300 text-xl font-medium mb-6 min-h-[2rem]">
+              {stages[stage]}
+            </div>
+
+            {/* Enhanced Progress Bar */}
+            <div className="w-full bg-slate-800/50 rounded-full h-4 mb-6 overflow-hidden">
+              <div
+                className="bg-gradient-to-r from-emerald-500 via-teal-400 to-green-500 h-full rounded-full transition-all duration-500 ease-out relative"
+                style={{ width: `${progress}%` }}
+              >
+                <div className="w-full h-full bg-white/20 rounded-full animate-pulse"></div>
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent animate-slide"></div>
+              </div>
+            </div>
+
+            {/* Enhanced Stage Indicators */}
+            <div className="flex justify-center space-x-3">
+              {stages.map((_, index) => (
                 <div
-                  key={i}
-                  className="w-3 h-3 bg-emerald-400 rounded-full animate-bounce"
-                  style={{ animationDelay: `${i * 0.2}s` }}
+                  key={index}
+                  className={`w-4 h-4 rounded-full transition-all duration-500 ${
+                    index < stage
+                      ? "bg-gradient-to-r from-emerald-400 to-teal-400 scale-110"
+                      : index === stage
+                        ? "bg-gradient-to-r from-emerald-500 to-teal-500 animate-pulse scale-125"
+                        : "bg-slate-600 scale-90"
+                  }`}
                 />
               ))}
             </div>
           </div>
+
+          {/* Enhanced System Stats Preview */}
+          {stage >= 3 && (
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 animate-fade-in">
+              <div className="bg-white/5 backdrop-blur-lg rounded-xl border border-emerald-400/20 p-4 text-center hover:scale-105 transition-transform">
+                <MapPin className="w-8 h-8 text-emerald-400 mx-auto mb-3" />
+                <div className="text-3xl font-bold text-emerald-300">143</div>
+                <div className="text-sm text-emerald-400">مشروع نشط</div>
+              </div>
+
+              <div className="bg-white/5 backdrop-blur-lg rounded-xl border border-blue-400/20 p-4 text-center hover:scale-105 transition-transform">
+                <Users className="w-8 h-8 text-blue-400 mx-auto mb-3" />
+                <div className="text-3xl font-bold text-blue-300">89</div>
+                <div className="text-sm text-emerald-400">عضو فريق</div>
+              </div>
+
+              <div className="bg-white/5 backdrop-blur-lg rounded-xl border border-green-400/20 p-4 text-center hover:scale-105 transition-transform">
+                <TrendingUp className="w-8 h-8 text-green-400 mx-auto mb-3" />
+                <div className="text-3xl font-bold text-green-300">2.4M</div>
+                <div className="text-sm text-emerald-400">درهم شهرياً</div>
+              </div>
+
+              <div className="bg-white/5 backdrop-blur-lg rounded-xl border border-yellow-400/20 p-4 text-center hover:scale-105 transition-transform">
+                <Globe className="w-8 h-8 text-yellow-400 mx-auto mb-3" />
+                <div className="text-3xl font-bold text-yellow-300">7</div>
+                <div className="text-sm text-emerald-400">إمارات</div>
+              </div>
+            </div>
+          )}
+
+          {/* UAE Smart Features Preview */}
+          {stage >= 5 && (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 animate-fade-in">
+              <div className="bg-gradient-to-br from-purple-900/30 to-blue-900/30 backdrop-blur-lg rounded-xl border border-purple-400/30 p-4 text-center">
+                <div className="text-2xl mb-2">🛰️</div>
+                <div className="text-purple-300 font-semibold">رادار ذكي</div>
+                <div className="text-xs text-purple-400">
+                  رصد الفرص العقارية
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-br from-orange-900/30 to-red-900/30 backdrop-blur-lg rounded-xl border border-orange-400/30 p-4 text-center">
+                <div className="text-2xl mb-2">🗺️</div>
+                <div className="text-orange-300 font-semibold">
+                  خرائط تفاعلية
+                </div>
+                <div className="text-xs text-orange-400">
+                  جميع الإمارات السبع
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-br from-green-900/30 to-emerald-900/30 backdrop-blur-lg rounded-xl border border-green-400/30 p-4 text-center">
+                <div className="text-2xl mb-2">🤖</div>
+                <div className="text-green-300 font-semibold">ذكاء اصطناعي</div>
+                <div className="text-xs text-green-400">محرك KnoxAI</div>
+              </div>
+            </div>
+          )}
         </div>
+
+        {/* Enhanced Final Stage Message */}
+        {stage === stages.length - 1 && (
+          <div className="mt-12 animate-fade-in">
+            <div className="bg-gradient-to-r from-emerald-500/20 via-teal-500/20 to-green-500/20 backdrop-blur-lg rounded-3xl border border-emerald-400/50 p-8">
+              <div className="flex items-center justify-center gap-4 text-emerald-300 mb-4">
+                <Zap className="w-8 h-8 animate-pulse" />
+                <span className="text-2xl font-bold">
+                  مرحباً بك في مستقبل المناظر الطبيعية الذكية
+                </span>
+                <Zap className="w-8 h-8 animate-pulse" />
+              </div>
+              <div className="text-emerald-400 text-lg">
+                "في KX PATH، نحن لا ننفّذ فقط... نحن نصنع تجربة تستحق الذكرى."
+              </div>
+              <div className="mt-4 text-emerald-500 text-sm">
+                🇦🇪 صُنع بفخر في دولة الإمارات العربية المتحدة 🇦🇪
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
-      {/* Corner Branding */}
-      <div className="absolute bottom-8 right-8 text-right">
-        <div className="text-white/60 text-sm">Powered by</div>
-        <div className="text-emerald-400 font-bold">KX PATH Technologies</div>
+      {/* Loading Dots Animation */}
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+        <div className="flex space-x-2">
+          {Array.from({ length: 3 }).map((_, i) => (
+            <div
+              key={i}
+              className="w-3 h-3 bg-emerald-400 rounded-full animate-bounce"
+              style={{ animationDelay: `${i * 0.2}s` }}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
