@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Banknote, Wallet, TrendingUp, Candlestick } from "lucide-react";
+import { Banknote, Wallet, TrendingUp, BarChart3 } from "lucide-react";
 
 interface PortfolioChartProps {
   language: "en" | "ar";
@@ -130,7 +130,7 @@ export default function PortfolioChart({ language }: PortfolioChartProps) {
               </button>
             </div>
 
-            <Candlestick className="w-6 h-6 text-white" />
+            <BarChart3 className="w-6 h-6 text-white" />
           </div>
         </div>
 
